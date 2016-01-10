@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>Bruce Lee</title>
+            <script>
+                var x = 100
+                document.write(x)
+                
+                </script>
+            </head>
+    <body>
+        <script>
+            document.write("<h1>I am header</h1>");
+            function test(hello){
+                document.write("hello my beautiful tomorrow");
+            }
+        // 改变图片
+        function changeImage(){
+            element=document.getElementById('myimage')
+             //WARNING: 如果图片加载不出来，换上自己本地的图片地址
+            if (element.src.match("http://limming.date/number0.png")) {
+                element.src="http://limming.date/number1.jpg"
+            }else{
+                element.src="http://limming.date/number0.png"
+            };
+            x=document.getElementById("btn")
+            x.style.color = "#0095e3";
+        }
+        var styles = ""
+        // 这个message可以由swift传过来
+        function myfunction(message) {
+            styles = message;
+        }
+        function clickAction() {
+            if (styles == "UIWebView") {
+                ioswindow.push();
+            }else {
+                window.webkit.messageHandlers.ioswindow.postMessage('pop')
+            }
+        }
+        </script>
+        <img id="myimage" onclick="changeImage()" src="http://limming.date/number0.png">
+            <button id="btn" type="123" onclick="clickAction()">click me</button>
+            </body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4DF1970682610A2BA0F64497AA192F2CE8763B0B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4DF1970682610A2BA0F64497AA192F2CE8763B0B" : 0,
+    "2078E496ED69E9DF54C5850D85D8CFFC515E5E6E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D79EA1EF-8158-4935-9420-9A081EB90DDD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4DF1970682610A2BA0F64497AA192F2CE8763B0B" : "WebViewWithJSDemo\/",
+    "2078E496ED69E9DF54C5850D85D8CFFC515E5E6E" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "WebViewWithJSDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "WebViewWithJSDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.oschina.net:12345667\/ShareBI.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2078E496ED69E9DF54C5850D85D8CFFC515E5E6E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.oschina.net:12345667\/WebViewWithJS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4DF1970682610A2BA0F64497AA192F2CE8763B0B"
+    }
+  ]
+}

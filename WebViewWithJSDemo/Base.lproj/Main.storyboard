@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lAl-F1-736">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="qa9-HY-KHr">
+            <objects>
+                <navigationController id="lAl-F1-736" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gbz-fN-LYH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="DaW-gu-X3c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NI8-Tb-i5S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-291" y="396"/>
+        </scene>
+        <!--uiwebview-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WebViewWithJSDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="881-6O-UPO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="8an-Dm-71v"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="881-6O-UPO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wj7-kY-20c"/>
+                            <constraint firstAttribute="trailing" secondItem="881-6O-UPO" secondAttribute="trailing" id="otx-pP-VjS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="881-6O-UPO" secondAttribute="bottom" id="ryE-gm-lE5"/>
+                            <constraint firstItem="881-6O-UPO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xNG-H8-OpR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="uiwebview" id="11A-ll-mcq">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Fgr-h5-xjn"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="web" destination="881-6O-UPO" id="nfx-4N-Gnq"/>
+                        <segue destination="sn9-mV-e9S" kind="push" identifier="uiwebviewtowkwebview" id="8pb-Qi-k1x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="162.66666666666666" y="396.18000000000001"/>
+        </scene>
+        <!--wkwebview-->
+        <scene sceneID="dbM-vT-Gu0">
+            <objects>
+                <viewController id="sn9-mV-e9S" customClass="WKWebScene" customModule="WebViewWithJSDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Yu-yy-8qw"/>
+                        <viewControllerLayoutGuide type="bottom" id="aMR-ue-W1V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DDr-x3-r0h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="wkwebview" id="tgK-Ca-n1V"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GHD-ce-Nrd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="544" y="398"/>
+        </scene>
+    </scenes>
+</document>
