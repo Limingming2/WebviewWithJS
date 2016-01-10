@@ -9,8 +9,9 @@
 import UIKit
 import WebKit
 
-class WKWebScene: UIViewController, WKNavigationDelegate {
 
+// WKWebview 会减少系统内存，相比UIWebview会节省资源
+class WKWebScene: UIViewController, WKNavigationDelegate {
     var web: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,16 +1,18 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4DF1970682610A2BA0F64497AA192F2CE8763B0B",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C6805C896D854E6B4238D700465819BADC667B54",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "4DF1970682610A2BA0F64497AA192F2CE8763B0B" : 0,
-    "2078E496ED69E9DF54C5850D85D8CFFC515E5E6E" : 0
+    "2078E496ED69E9DF54C5850D85D8CFFC515E5E6E" : 0,
+    "C6805C896D854E6B4238D700465819BADC667B54" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D79EA1EF-8158-4935-9420-9A081EB90DDD",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "4DF1970682610A2BA0F64497AA192F2CE8763B0B" : "WebViewWithJSDemo\/",
-    "2078E496ED69E9DF54C5850D85D8CFFC515E5E6E" : ""
+    "2078E496ED69E9DF54C5850D85D8CFFC515E5E6E" : "",
+    "C6805C896D854E6B4238D700465819BADC667B54" : "webviewwithjs\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "WebViewWithJSDemo",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -25,6 +27,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.oschina.net:12345667\/WebViewWithJS.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4DF1970682610A2BA0F64497AA192F2CE8763B0B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Limingming2\/WebviewWithJS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C6805C896D854E6B4238D700465819BADC667B54"
     }
   ]
 }
