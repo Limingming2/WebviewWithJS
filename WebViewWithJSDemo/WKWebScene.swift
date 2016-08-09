@@ -26,7 +26,7 @@ class WKWebScene: UIViewController, WKNavigationDelegate {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pop", name: popNoti, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(WKWebScene.pop), name: popNoti, object: nil)
     }
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)

@@ -20,7 +20,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "push", name: pushNoti, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.push), name: pushNoti, object: nil)
     }
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
