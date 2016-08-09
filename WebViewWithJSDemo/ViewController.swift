@@ -16,7 +16,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         let request = NSURLRequest(URL: NSURL(fileURLWithPath: urlStr!))
         web.loadRequest(request)
-
+        print(urlStr)
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
