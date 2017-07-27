@@ -11,43 +11,54 @@ import WebKit
 
 
 // WKWebview 会减少系统内存，相比UIWebview会节省资源
-class WKWebScene: UIViewController, WKNavigationDelegate {
+class WKWebScene: UIViewController, WKNavigationDelegate,WKScriptMessageHandler {
     var web: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        web = WKWebView(frame: CGRectZero, configuration: Configuration())
+        let config = Configuration()
+        config.userContentController.add(self, name: "ioswindow")
+        web = WKWebView(frame: CGRect.zero, configuration: config)
         web.navigationDelegate = self
-        let request = NSURLRequest(URL: NSURL(fileURLWithPath: urlStr!))
-        web.loadRequest(request)
+        let request = URLRequest(url: URL(fileURLWithPath: urlStr!))
+        web.load(request)
         web.translatesAutoresizingMaskIntoConstraints = false
         let contraints = addConstraint()
         view.addSubview(web)
-        NSLayoutConstraint.activateConstraints(contraints)
+        NSLayoutConstraint.activate(contraints)
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(WKWebScene.pop), name: popNoti, object: nil)
     }
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-    // MARK: - noti
+    // MARK: - WKScriptMessageHandler
     func pop() {
-        navigationController?.popViewControllerAnimated(true)
+        navigationController?.popViewController(animated: true)
     }
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print(message.body)
+        if message.body is String {
+            let str = message.body as! String
+            if str == "pop" {
+                pop()
+            }
+        }
+    }
+
+    
     // MARK: - webview delegate
-    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         let style = String(format: "myfunction('%@')", NSStringFromClass(webView.classForCoder))
         webView.evaluateJavaScript(style, completionHandler: nil)
         webView.evaluateJavaScript("document.body.style.zoom=2", completionHandler: nil)
     }
     // MARK: - constraint
     func addConstraint()->[NSLayoutConstraint] {
-        let top = NSLayoutConstraint(item: web, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: 0)
-        let left = NSLayoutConstraint(item: web, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1.0, constant: 0)
-        let bottom = NSLayoutConstraint(item: web, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1.0, constant: 0)
-        let right = NSLayoutConstraint(item: web, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1.0, constant: 0)
+        let top = NSLayoutConstraint(item: web, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0)
+        let left = NSLayoutConstraint(item: web, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0)
+        let bottom = NSLayoutConstraint(item: web, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0)
+        let right = NSLayoutConstraint(item: web, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0)
         return [top, left, bottom, right]
     }
     /*

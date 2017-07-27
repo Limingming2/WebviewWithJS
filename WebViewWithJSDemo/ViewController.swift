@@ -9,43 +9,38 @@
 import UIKit
 import JavaScriptCore
 
-class ViewController: UIViewController, UIWebViewDelegate {
+class ViewController: UIViewController, UIWebViewDelegate,JSProtocol {
 
-    @IBOutlet private var web: UIWebView!
+    @IBOutlet fileprivate var web: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let request = NSURLRequest(URL: NSURL(fileURLWithPath: urlStr!))
+        let request = URLRequest(url: URL(fileURLWithPath: urlStr!))
         web.loadRequest(request)
-        print(urlStr)
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.push), name: pushNoti, object: nil)
     }
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-    // MARK: - noti
+    
+//    MARK: - JSProtocol
     func push() {
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            self.performSegueWithIdentifier(pushIdentifier, sender: nil)
-        }
+        self.performSegue(withIdentifier: pushIdentifier, sender: nil)
     }
 
     // MARK: - webviewdelegate
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         // 给js传参说明是uiwebview
         return true
     }
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         // 把含有要被调用的方法的类传给web
-        let model = BridgeModel()
-        let context = webView.valueForKeyPath(jsPath) as! JSContext
-        context.setObject(model, forKeyedSubscript: "ioswindow")
+        let context = webView.value(forKeyPath: jsPath) as! JSContext
+        context.setObject(self, forKeyedSubscript: "ioswindow" as NSCopying & NSObjectProtocol)
         let style = String(format: "myfunction('%@')", NSStringFromClass(webView.classForCoder))
-        webView.stringByEvaluatingJavaScriptFromString(style)
-        webView.stringByEvaluatingJavaScriptFromString("document.body.style.zoom=0.5")
+        webView.stringByEvaluatingJavaScript(from: style)
+        webView.stringByEvaluatingJavaScript(from: "document.body.style.zoom=0.5")
         
     }
 

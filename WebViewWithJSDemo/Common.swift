@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public let urlStr = NSBundle.mainBundle().pathForResource("print", ofType: "html")?.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
+public let urlStr = Bundle.main.path(forResource: "print", ofType: "html")?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
 
 public let pushNoti = "pushidentifier"
 

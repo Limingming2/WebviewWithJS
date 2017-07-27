@@ -16,7 +16,11 @@ class Configuration: WKWebViewConfiguration {
         preferences.javaScriptCanOpenWindowsAutomatically = true
         preferences.javaScriptEnabled = true
         userContentController = WKUserContentController()
-        let model = WkBridgeModel()
-        userContentController.addScriptMessageHandler(model, name: "ioswindow")
+//        let model = WkBridgeModel()
+//        userContentController.add(model, name: "ioswindow")
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
